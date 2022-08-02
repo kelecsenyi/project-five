@@ -61,14 +61,62 @@
   #RESET
 \*-----------------------------------*/
 
+*,
+::after,
+::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+li{list-style: none;}
 
+a{text-decoration: none; color: inherit;}
 
+a,
+img,
+svg,
+data,
+span,
+button,
+ion-icon{display: block;}
+
+img{height: auto;}
+
+button{
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+table{border-collapse: collapse;}
+
+html{
+  font-family: var(--ff-dm-sans);
+  font-size: 0.6rem;
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--eerie-black-2);
+  color: var(--cadet-blue-crayola);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  min-height: 200vh;
+}
+
+::-webkit-scrollbar{width: 0.6rem;}
+::-webkit-scrollbar-track{background-color: hsl(220, 4%, 5%);}
+::-webkit-scrollbar-thumb{background-color: hsl(220, 5%, 20%);}
+::-webkit-scrollbar-thumb:hover{background-color: hsl(200, 5%, 30%);}
 
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
+.container{
 
+}
 
 
 
@@ -77,9 +125,69 @@
   #HEADER
 \*-----------------------------------*/
 
+.navbar{display: none;}
 
+.header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--eerie-black-1);
+  padding: 1rem;
+  z-index: 10;
+}
 
+.header.active{
+  position: fixed;
+  top: -66px;
+  background-color: var(--white);
+  border-block-start: 1px solid var(--cultured);
+  box-shadow: var(--shadow-1);
+  animation: slideIn 0.25s var(--cubic-out) forwards;
+}
 
+@keyframes slideIn{
+  0%{
+    transform: translateY(0);
+    background-color: var(--white);
+  }
+  100%{
+    transform: translateY(100%);
+    background-color: var(--eerie-black-2);
+  }
+}
+
+.header > .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo{
+  color: var(--white);
+  font-size: 2.5rem;
+  font-weight:var(--fw-700);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-toggle-btn .line{
+  width: 26px;
+  height: 3px;
+  background-color: var(--white);
+  transition: var(--transition-1);
+}
+
+.nav-toggle-btn .line:not(:last-child){
+  margin-block-end: 4px;
+}
+
+.nav-toggle-btn{
+  padding: 8px 5px;
+  margin-inline-start: auto;
+}
 
 /*-----------------------------------*\
   #HERO
